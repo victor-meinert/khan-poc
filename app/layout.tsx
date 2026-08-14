@@ -36,6 +36,12 @@ export default function RootLayout({
             <header className="border-b border-gray-800 px-8 py-5">
               <div className="max-w-6xl mx-auto flex items-start justify-between">
                 <div>
+                  <a
+                    href="https://victormeinert.com/projects"
+                    className="mb-2 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-blue-300 transition-colors"
+                  >
+                    ← Back to victormeinert.com
+                  </a>
                   <p className="text-4xl font-bold tracking-tight text-white">Screener Submission - Victor Meinert</p>
                   <p className="text-2xl text-gray-400">Project Manager - Content Operations</p>
                 </div>
