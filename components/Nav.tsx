@@ -3,23 +3,26 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Note: /poc is a redirect to / and is deliberately not listed here, so the
+// nav never offers two links that land on the same page.
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/poc", label: "PoC" },
-  { href: "/screener", label: "Screener" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Proof of Concept" },
+  { href: "/screener", label: "Screener Responses" },
+  { href: "/about", label: "How It Was Built" },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
   return (
-    <nav className="flex items-center gap-6">
+    <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
       {links.map(({ href, label }) => {
-        const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+        const isActive =
+          href === "/" ? pathname === "/" : pathname.startsWith(href);
         return (
           <Link
             key={href}
             href={href}
+            aria-current={isActive ? "page" : undefined}
             className={
               "text-sm font-medium tracking-wide transition-colors " +
               (isActive
